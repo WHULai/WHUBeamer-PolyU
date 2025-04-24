@@ -1,0 +1,8 @@
+\frametitle{Texts}\framesubtitle {In a Sequence}
+
+	\begin{itemize}[<+->]
+		\item A typical slide has bulleted points.
+		\item These can be uncovered in sequence.
+		\item When rendered, they will be separated into multiple slides.
+	\end{itemize}
+
