@@ -1,5 +1,5 @@
 # WHUBeamer-PolyU
-从 [PolyU Beamer Slides]([PolyU Beamer Slides - Overleaf, Online LaTeX Editor](https://www.overleaf.com/latex/templates/polyu-beamer-slides/pyhhgmgmvzhg)) 改编的武汉大学 Beamer 模板
+从 [PolyU Beamer Slides](https://www.overleaf.com/latex/templates/polyu-beamer-slides/pyhhgmgmvzhg) 改编的武汉大学 Beamer 模板
 
 
 
