@@ -6,6 +6,7 @@
 
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
+\RequirePackage{iftex}
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -15,8 +16,21 @@
 \RequirePackage{verbatim}
 \RequirePackage{hyperref}
 \RequirePackage{listings}
-\RequirePackage{transparent}
-\RequirePackage{ctex}
+\ifLuaTeX
+	\RequirePackage{transparent}
+	\RequirePackage{ctex}
+	\newcommand{\poly@opacity}[2]{\transparent{#1}#2}
+\else\ifXeTeX
+	\RequirePackage{xeCJK}
+	\newcommand{\poly@opacity}[2]{%
+		\tikz[baseline]{\node[inner sep=0pt,opacity=#1]{#2};}%
+	}
+\else\ifPDFTeX
+	\RequirePackage{transparent}
+	\newcommand{\poly@opacity}[2]{\transparent{#1}#2}
+\else
+	\newcommand{\poly@opacity}[2]{#2}
+\fi\fi\fi
 
 
 % ================================================================================
@@ -148,7 +162,7 @@
             \begin{beamercolorbox}[wd=1.1\paperwidth,ht=140pt]{jumbo}
             \end{beamercolorbox}
         }
-        \put(243,-135){\transparent{0.1} \includegraphics[width=250pt]{source/whu-logo-trans}}
+        \put(243,-10){\poly@opacity{0.1}{\includegraphics[width=250pt]{source/whu-logo-trans}}}
 		\put(0,25){%
 			\begin{minipage}{300pt}
 				\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
@@ -213,7 +227,7 @@
     \begingroup
     \begin{frame}{Contents}{}
     	\begin{picture}(0,0)
-    		\put(-42,-170){\transparent{0.1} \includegraphics[width=1.1\paperwidth]{source/whu-library}}
+    		\put(-42,-100){\poly@opacity{0.2}{\includegraphics[width=1.1\paperwidth]{source/whu-library}}}
     	\end{picture}
         \tableofcontents[currentsection]
     \end{frame}
